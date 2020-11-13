@@ -8,9 +8,9 @@ export const Container = styled.header`
   padding: 0 4rem;
   margin-bottom: 5px;
   font-family: Arial, Helvetica, sans-serif;
-  -webkit-box-shadow: 0px 5px 5px 0px rgba(239,239,239,0.7);
-  -moz-box-shadow: 0px 5px 5px 0px rgba(239,239,239,0.7);
-  box-shadow: 0px 5px 5px 0px rgba(239,239,239,0.7);
+  -webkit-box-shadow: 0px 0px 5px 3px rgba(239, 239, 239, 1);
+  -moz-box-shadow: 0px 0px 5px 3px rgba(239, 239, 239, 1);
+  box-shadow: 0px 0px 5px 3px rgba(239, 239, 239, 1);
 
   div {
     &:nth-of-type(2){

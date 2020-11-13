@@ -12,7 +12,7 @@ const Header = () => {
       </div>
       <div>
         <Button color={color}>
-          <i class="far fa-moon"></i> Dark Mode
+          <i className="far fa-moon"></i> Dark Mode
         </Button>
       </div>
     </Container>

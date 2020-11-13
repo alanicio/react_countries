@@ -10,7 +10,7 @@ const FilterTools = () => {
   return (
     <Container bgColor={bgColor}>
       <InputText bgColor={bgColorSecondary} color={colorSecondary}>
-        <i class="fas fa-search"></i>
+        <i className="fas fa-search"></i>
         <input type="text" placeholder="Search for a country..." />
       </InputText>
 

@@ -1,12 +1,14 @@
 import React from 'react';
 import Header from './components/Header';
-import FilterTools from './FilterTools';
+import CountriesList from './components/CountriesList';
+import FilterTools from './components/FilterTools';
 
 function App() {
   return (
     <>
       <Header />
       <FilterTools />
+      <CountriesList />
     </>
   );
 }
