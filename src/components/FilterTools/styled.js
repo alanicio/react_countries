@@ -10,6 +10,21 @@ export const Container = styled.div`
       margin-left: auto;
     }
   }
+
+  @media(max-width: 635px) {
+    flex-flow: row wrap;
+
+    div {
+      &:nth-of-type(2) {
+        margin-left: 0;
+      }
+    }
+  }
+
+  @media(max-width: 480px) {
+    padding: 30px 2rem;
+  }
+
 `;
 
 export const InputText = styled.div`
@@ -28,6 +43,17 @@ export const InputText = styled.div`
     color: ${({ color }) => color};
     margin-left: 1rem;
   }
+
+  @media(max-width: 635px) {
+    margin-bottom: 1rem;
+  }
+
+  @media(max-width: 390px) {
+    input {
+      width: 170px;
+    }
+  }
+
 `;
 
 export const Select = styled.select`

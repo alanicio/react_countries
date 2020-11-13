@@ -6,4 +6,9 @@ export const Container = styled.div`
   min-height: 82.2vh;
   flex-flow: row wrap;
   padding: 0 2rem;
+
+  @media(max-width: 480px) {
+    padding: 0 0;
+  }
+
 `;
