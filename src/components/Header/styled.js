@@ -29,4 +29,5 @@ export const Button = styled.button`
   background-color: transparent;
   border: none;
   color: ${ ({color}) => color };
+  cursor: pointer;
 `;

@@ -5,6 +5,7 @@ export const Card = styled.div`
   background-color: ${ ({bgColor}) => bgColor };
   margin: 2rem;
   border-radius: 8px;
+  cursor: pointer;
 
   -webkit-box-shadow: 0px 0px 5px 3px rgba(239, 239, 239, 1);
   -moz-box-shadow: 0px 0px 5px 3px rgba(239, 239, 239, 1);

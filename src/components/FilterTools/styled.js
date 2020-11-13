@@ -60,6 +60,7 @@ export const Select = styled.select`
   -webkit-appearance: none;
   -moz-appearance:    none;
   appearance:         none;
+  cursor: pointer;
 
   background-color: ${({ bgColor }) => bgColor};
   color: ${({ color }) => color};
