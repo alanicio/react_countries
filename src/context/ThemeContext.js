@@ -8,7 +8,8 @@ const ThemeProvider = (props) => {
     color: "#111214",
     colorSecondary: "#7c7c7c",
     bgColor: "#fafafa",
-    bgColor2: "#ffffff",
+    bgColorSecondary: "#ffffff",
+    shadowBox: "0px 0px 5px 3px rgba(239, 239, 239, 1)",
   };
 
   const darkTheme = {
@@ -16,7 +17,8 @@ const ThemeProvider = (props) => {
     color: "white",
     colorSecondary: "white",
     bgColor: "#202d36",
-    bgColor2: "#2b3743",
+    bgColorSecondary: "#2b3743",
+    shadowBox: "0px 0px 5px 10px rgba(31,44,53,1)",
   };
 
   const [theme, setTheme] = useState(lightTheme);

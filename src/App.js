@@ -1,15 +1,18 @@
 import React from 'react';
 import Header from './components/Header/Header';
 import CountriesList from './components/CountriesList';
-import FilterTools from './components/FilterTools';
+import FilterTools from './components/FilterTools/FilterTools';
 import ThemeProvider from './context/ThemeContext';
+import CountriesProvider from './context/CountriesContext';
 
 function App() {
   return (
     <ThemeProvider>
-      <Header />
-      <FilterTools />
-      <CountriesList />
+      <CountriesProvider>
+        <Header />
+        <FilterTools />
+        <CountriesList />
+      </CountriesProvider>
     </ThemeProvider>
   );
 }
