@@ -6,10 +6,13 @@ export const Card = styled.div`
   margin: 2rem;
   border-radius: 8px;
   cursor: pointer;
+  
+  max-width: 264px;
+  max-height: 342.63px;
 
-  -webkit-box-shadow: 0px 0px 5px 3px rgba(239, 239, 239, 1);
-  -moz-box-shadow: 0px 0px 5px 3px rgba(239, 239, 239, 1);
-  box-shadow: 0px 0px 5px 3px rgba(239, 239, 239, 1);
+  -webkit-box-shadow: ${({ shadowBox }) => shadowBox};
+  -moz-box-shadow: ${({ shadowBox }) => shadowBox};
+  box-shadow: ${({ shadowBox }) => shadowBox};
 
   img {
     width: 264px;
@@ -22,6 +25,14 @@ export const CountryLabel = styled.div`
   padding: 1rem;
   font-family: 'Nunito Sans', sans-serif;
   font-weight: 300;
+  color: ${({ color }) => color};
+
+  h3 {
+    max-width: 258px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 
   p{
     font-size: 14px;

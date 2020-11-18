@@ -4,11 +4,11 @@ import { Button, Container } from "./styled";
 
 const Header = () => {
   const { theme, switchTheme } = useContext(ThemeContext);
-  const { id, color, bgColor, shadowBox } = theme;
+  const { id, color, bgColorSecondary, shadowBox } = theme;
 
   return (
     <Container
-      bgColor={bgColor}
+      bgColor={bgColorSecondary}
       color={color}
       shadowBox={shadowBox}
       data-testid="Header"
