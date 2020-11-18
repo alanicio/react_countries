@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import FilterTools from "./FilterTools";
 import ThemeProvider from "../../context/ThemeContext";
@@ -14,8 +14,12 @@ const search = "";
 const setRegion = jest.fn();
 const setSearch = jest.fn();
 
-test('<FilterTools /> Typing in input', () => {
+test('<FilterTools /> Typing in input', async () => {
   
+  mockAxios.get = jest.fn().mockResolvedValue({
+    data: []
+  });
+
   render(
     <ThemeProvider>      
       <CountriesProvider value={{ countries, region, search, setRegion, setSearch }}>
@@ -23,7 +27,9 @@ test('<FilterTools /> Typing in input', () => {
       </CountriesProvider>
     </ThemeProvider>
   );
-  
+
+  await waitFor(() => expect(mockAxios.get).toHaveBeenCalledTimes(1));
+
   const input = screen.getByTestId("input");
   expect(input).toHaveValue("");
 
@@ -44,4 +50,33 @@ test('<FilterTools /> Typing in input', () => {
   userEvent.clear(input);
 
   expect(input).toHaveValue("");
-})
+});
+
+test('<FilterTools /> Testing select', async () => {
+  
+  mockAxios.get = jest.fn().mockResolvedValue({
+    data: []
+  });
+
+  render(
+    <ThemeProvider>      
+      <CountriesProvider value={{ countries, region, search, setRegion, setSearch }}>
+        <FilterTools />
+      </CountriesProvider>
+    </ThemeProvider>
+  );
+
+  await waitFor(() => expect(mockAxios.get).toHaveBeenCalledTimes(1));
+
+  const select = screen.getByTestId("select");
+  expect(select).toHaveValue("");
+
+  userEvent.selectOptions(select,"Americas");
+  await waitFor(() => expect(mockAxios.get).toHaveBeenCalledTimes(2));
+  expect(select).toHaveValue("Americas");
+
+  userEvent.selectOptions(select,"Africa");
+  await waitFor(() => expect(mockAxios.get).toHaveBeenCalledTimes(3));
+  expect(select).toHaveValue("Africa");
+
+});
