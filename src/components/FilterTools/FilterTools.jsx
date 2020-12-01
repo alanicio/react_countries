@@ -34,7 +34,7 @@ const FilterTools = () => {
           onChange={(e) => setRegion(e.target.value)}
           data-testid="select"
         >
-          <option value="" >Filter by Region</option>
+          <option value="">{region === "" ? "Filter by Region" : "All"}</option>
           <option value="Africa">Africa</option>
           <option value="Americas">Americas</option>
           <option value="Asia">Asia</option>
