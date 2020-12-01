@@ -12,10 +12,10 @@ function App() {
       <ThemeProvider>
         <CountriesProvider>
           <Header />
-          <div className="container">
+          <div>
             <Switch>
               <Route exact path="/" component={CountriesList}/>
-              <Route exact path="/:country" component={CountryData}/>
+              <Route exact path="/:countryName" component={CountryData}/>
             </Switch>
           </div>
         </CountriesProvider>

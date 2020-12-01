@@ -14,6 +14,8 @@ export const Card = styled.div`
   -moz-box-shadow: ${({ shadowBox }) => shadowBox};
   box-shadow: ${({ shadowBox }) => shadowBox};
 
+  a {text-decoration: none;}
+
   img {
     width: 264px;
     height: 176px;

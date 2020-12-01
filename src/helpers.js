@@ -1,8 +1,8 @@
 import axios from "axios"
 
 export const getCountries = async (url, setCountries) => {
-  let api = await axios.get(url);
-  let countries = api.data;
+  const api = await axios.get(url);
+  const countries = api.data;
   setCountries(countries);
 }
 
@@ -19,4 +19,10 @@ export const filterCountries = (search, countries) => {
   } );
   return filteredCountries;
 }
+
+export const getCountry = async (country, setCountry) => {
+  const api = await axios.get(`https://restcountries.eu/rest/v2/name/${country}?fullText=true`);
+  setCountry(api.data[0]);
+}
+
 

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const Container = styled.div`
+export const CountriesListContainer = styled.div`
   display: flex;
   background-color: ${ ({bgColor}) => bgColor };
   min-height: 82.2vh;

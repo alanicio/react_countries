@@ -3,7 +3,7 @@ import { CountriesContext } from "../../context/CountriesContext";
 import { ThemeContext } from "../../context/ThemeContext";
 import CountryCard from "../CountryCard/CountryCard";
 import FilterTools from "../FilterTools/FilterTools";
-import { Container } from "./styled";
+import { CountriesListContainer } from "./styled";
 
 const CountriesList = () => {
   const { theme } = useContext(ThemeContext);
@@ -14,7 +14,7 @@ const CountriesList = () => {
   return (
     <>
       <FilterTools />
-      <Container bgColor={bgColor}>
+      <CountriesListContainer bgColor={bgColor}>
         {countries.map(({ flag, name, population, region, capital }) => (
           <CountryCard
             key={name}
@@ -25,7 +25,7 @@ const CountriesList = () => {
             capital={capital}
           />
         ))}
-      </Container>
+      </CountriesListContainer>
     </>
   );
 };
