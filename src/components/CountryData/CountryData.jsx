@@ -2,24 +2,25 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ThemeContext } from "../../context/ThemeContext";
 import { getCountry } from "../../helpers";
-import { CountryDataLabel } from "./styled";
+import { Button, CountryDataContainer, CountryDataLabel, Row } from "./styled";
 
 const emptyCountry = {
-  name:'',
-  nativeName:'',
-  population:'',
-  region:'',
-  subregion:'',
-  capital:'',
-  topLevelDomain:[],
-  currencies:[],
-  languages:[],
-  borders:[],
+  name: "",
+  nativeName: "",
+  population: "",
+  region: "",
+  subregion: "",
+  capital: "",
+  topLevelDomain: [],
+  currencies: [],
+  languages: [],
+  borders: [],
+  flag: "",
 };
 
 const CountryData = () => {
   const { theme } = useContext(ThemeContext);
-  const { bgColorSecondary, shadowBox, color } = theme;
+  const { bgColorSecondary, bgColor, shadowBox, color } = theme;
   const [country, setCountry] = useState(emptyCountry);
   const { countryName } = useParams();
   useEffect(() => {
@@ -37,18 +38,26 @@ const CountryData = () => {
     currencies,
     languages,
     borders,
+    flag,
   } = country;
-
   return (
-    <>
+    <CountryDataContainer color={bgColor}>
+      <Row>
         <Link to={"/"}>
-      <button>
-          <i className="fas fa-long-arrow-alt-left"></i>
-          Back
-      </button>
+          <Button
+            bgColor={bgColorSecondary}
+            color={color}
+            shadowBox={shadowBox}
+          >
+            <i className="fas fa-long-arrow-alt-left"></i>
+            Back
+          </Button>
         </Link>
-      <h1>{name}</h1>
-      <CountryDataLabel>
+      </Row>
+
+      <img src={flag} alt={name} />
+      <CountryDataLabel color={color}>
+        <h1>{name}</h1>
         <p>
           <span>Native Name:</span> {nativeName}
         </p>
@@ -68,15 +77,21 @@ const CountryData = () => {
           <span>Top Level Domain:</span> {topLevelDomain}
         </p>
         <p>
-          <span>Currencies:</span> {currencies.map( ({name}) => `${name},` )}
+          <span>Currencies:</span> {currencies.map(({ name }) => `${name},`)}
         </p>
         <p>
-          <span>Languages:</span> {languages.map( ({name}) => `${name},` )}
+          <span>Languages:</span> {languages.map(({ name }) => `${name},`)}
+        </p>
+        <p>
+          <span>Border Countries:</span>{borders.map((border) => (
+            <Button bgColor={bgColorSecondary} color={color} shadowBox={shadowBox}>
+              {border}
+            </Button>        
+          ))}
         </p>
         
       </CountryDataLabel>
-      {borders.map(border => <button>{border}</button>)}
-    </>
+    </CountryDataContainer>
   );
 };
 

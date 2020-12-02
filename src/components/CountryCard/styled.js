@@ -20,6 +20,7 @@ export const Card = styled.div`
     width: 264px;
     height: 176px;
     border-radius: 8px 8px 0 0;
+    object-fit:cover;
   }
 `;
 
