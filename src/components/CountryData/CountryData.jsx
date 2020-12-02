@@ -83,13 +83,20 @@ const CountryData = () => {
           <span>Languages:</span> {languages.map(({ name }) => `${name},`)}
         </p>
         <p>
-          <span>Border Countries:</span>{borders.map((border) => (
-            <Button bgColor={bgColorSecondary} color={color} shadowBox={shadowBox}>
-              {border}
-            </Button>        
+          <span>Border Countries:</span>
+          {borders.map((border) => (
+            <Link to={`/${border}`} >
+              <Button
+                key={border}
+                bgColor={bgColorSecondary}
+                color={color}
+                shadowBox={shadowBox}
+              >
+                {border}
+              </Button>
+            </Link>
           ))}
         </p>
-        
       </CountryDataLabel>
     </CountryDataContainer>
   );
