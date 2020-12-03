@@ -27,6 +27,7 @@ const CountriesProvider = (props) => {
         search,
         setRegion,
         setSearch,
+        loader: countries.length === 0 ? true: false,
       }}
     >
       {props.children}

@@ -12,3 +12,11 @@ export const CountriesListContainer = styled.div`
   }
 
 `;
+
+export const LoaderZone = styled.div`
+  padding-top: 12rem;
+  display: flex;
+  justify-content: center;
+  background-color: ${ ({color}) => color };
+  min-height: 74vh;
+`;

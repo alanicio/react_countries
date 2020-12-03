@@ -30,9 +30,11 @@ export const getCountry = async (country, setCountry) => {
   borders.forEach((border) => {
     bordersString = `${bordersString}${border};`;
   });
-  const apiBorders = await axios.get(
-    `https://restcountries.eu/rest/v2/alpha?codes=${bordersString}`
-  );
-  country.borders = apiBorders.data.map(({ name }) => name);
+  if(bordersString.length > 0){
+    const apiBorders = await axios.get(
+      `https://restcountries.eu/rest/v2/alpha?codes=${bordersString}`
+    );
+    country.borders = apiBorders.data.map(({ name }) => name);
+  }
   setCountry(country);
 };

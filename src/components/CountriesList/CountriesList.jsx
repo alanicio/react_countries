@@ -1,15 +1,28 @@
 import React, { useContext } from "react";
+import Loader from "react-loader-spinner";
 import { CountriesContext } from "../../context/CountriesContext";
 import { ThemeContext } from "../../context/ThemeContext";
 import CountryCard from "../CountryCard/CountryCard";
 import FilterTools from "../FilterTools/FilterTools";
-import { CountriesListContainer } from "./styled";
+import { CountriesListContainer, LoaderZone } from "./styled";
 
 const CountriesList = () => {
   const { theme } = useContext(ThemeContext);
-  const { bgColor } = theme;
+  const { bgColor, color } = theme;
 
-  const { countries } = useContext(CountriesContext);
+  const { countries, loader } = useContext(CountriesContext);
+  if(loader) {
+    return(
+      <LoaderZone color={bgColor}>        
+        <Loader
+          type="Circles"
+          color={color}
+          height={300}
+          width={300}  
+        />        
+      </LoaderZone>
+     );
+  }
 
   return (
     <>
